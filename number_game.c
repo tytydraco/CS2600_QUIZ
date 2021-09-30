@@ -8,6 +8,7 @@ Ask user for a number between 1 and 10
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int max_number = 10;
 
@@ -15,25 +16,31 @@ void play() {
     int number = rand() % max_number + 1;
 
     while (1) {
-        int guess;
+        char guess[16];
 
         printf("Guess: ");
-        scanf("%d", &guess);
+        scanf("%s", &guess);
 
-        if (guess > number) {
+        if (strcmp(guess, "q") == 0)
+            break;
+
+        int guess_int = atoi(guess);
+
+        if (guess_int > number) {
             printf("Too high!\n");
-        } else if (guess < number) {
+        } else if (guess_int < number) {
             printf("Too low!\n");
         } else {
-            printf("Winner!\n");;
+            printf("Winner!\n");
             break;
         }
     }
 }
 
 void change() {
-    printf("New random number: ");
+    printf("New max number: ");
     scanf("%d", &max_number);
+    getchar();
 }
 
 int main() {
@@ -45,6 +52,7 @@ int main() {
         printf("Press 3 to quit\n");
 
         scanf("%d", &mode);
+        getchar();
         
         switch (mode)
         {
