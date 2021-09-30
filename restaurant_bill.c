@@ -14,6 +14,9 @@ float bills[] = {9.95, 4.55, 13.25, 22.35};
 int main() {
     int tax;
     int tip;
+    
+    time_t t;
+    srand((unsigned int) time(&t));
 
     printf("Enter tax percent: ");
     scanf("%d", &tax);
