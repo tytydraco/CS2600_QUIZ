@@ -50,6 +50,9 @@ void change() {
 
 int main() {
     int mode;
+    time_t t;
+    srand((unsigned int) time(&t));
+    
 
     while (1) {
         printf("Press 1 to play a game\n");
