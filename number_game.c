@@ -41,6 +41,11 @@ void change() {
     printf("New max number: ");
     scanf("%d", &max_number);
     getchar();
+
+    if (max_number < 0 || max_number > 1000) {
+        printf("Number out of range!\n");
+        change();
+    }
 }
 
 int main() {
