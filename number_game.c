@@ -9,6 +9,7 @@ Ask user for a number between 1 and 10
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 int max_number = 10;
 
