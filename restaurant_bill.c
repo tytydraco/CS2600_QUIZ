@@ -8,6 +8,7 @@ function to randomly pick one
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 float bills[] = {9.95, 4.55, 13.25, 22.35};
 
