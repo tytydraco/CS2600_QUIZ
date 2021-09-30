@@ -46,10 +46,27 @@ void change() {
         printf("Number out of range!\n");
         change();
     }
+
+    FILE *save = fopen("save", "w");
+    char max_string[64];
+    sprintf(max_string, "%d", max_number);
+    if (save != NULL) {
+        char save_text[64];
+        fputs(max_string, save);
+        fclose(save);
+    }
 }
 
 int main() {
     int mode;
+
+    FILE *save = fopen("save", "r");
+    if (save != NULL) {
+        char save_text[64];
+        fgets(save_text, 64, save);
+        max_number = atoi(save_text);
+        fclose(save);
+    }
 
     while (1) {
         printf("Press 1 to play a game\n");
@@ -68,6 +85,7 @@ int main() {
             change();
             break;
         case 3:
+            printf("Thanks for playing!\n");
             exit(0);
         
         default:
